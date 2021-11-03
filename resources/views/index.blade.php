@@ -84,6 +84,6 @@
   </div>
 
   <hr>
-@section('content')
+@endsection
   <!-- Footer 共同區塊-->
 
