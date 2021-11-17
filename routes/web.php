@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
+use App\Models\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +15,11 @@ use App\Http\Controllers\PostsController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    $post=new Post();//先產生Post的物件$post，$post代表posts資料表的一篇貼文
+    $post->title='test title';//指定貼文的title
+    $post->content='text content';//指定貼文的content
+    $post->save();
 });
 Route::get('posts', [PostsController::class, 'index'])->name('posts.index');
 Route::get('post', [PostsController::class, 'show'])->name('posts.show');
