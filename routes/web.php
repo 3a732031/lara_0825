@@ -27,8 +27,11 @@ Route::get('/', function () {
 //        'content'=>'test content2'
 //    ]);
 
-    $posts=Post::all();//取出posts資料表所有貼文
-    dd($posts);
+//    $posts=Post::all();//取出posts資料表所有貼文
+//    dd($posts);
+
+    $post=Post::find(1);//找尋posts資料表id=1的貼文
+    dd($post);
 });
 Route::get('posts', [PostsController::class, 'index'])->name('posts.index');
 Route::get('post', [PostsController::class, 'show'])->name('posts.show');
