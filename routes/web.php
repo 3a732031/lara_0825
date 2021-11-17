@@ -21,10 +21,14 @@ Route::get('/', function () {
 //    $post->title='test title';//指定貼文的title
 //    $post->content='text content';//指定貼文的content
 //    $post->save();
-    Post::create([
-       'title'=>'test title2',
-        'content'=>'test content2'
-    ]);
+
+//    Post::create([
+//       'title'=>'test title2',
+//        'content'=>'test content2'
+//    ]);
+
+    $posts=Post::all();//取出posts資料表所有貼文
+    dd($posts);
 });
 Route::get('posts', [PostsController::class, 'index'])->name('posts.index');
 Route::get('post', [PostsController::class, 'show'])->name('posts.show');
