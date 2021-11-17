@@ -30,8 +30,11 @@ Route::get('/', function () {
 //    $posts=Post::all();//取出posts資料表所有貼文
 //    dd($posts);
 
-    $post=Post::find(1);//找尋posts資料表id=1的貼文
-    dd($post);
+//    $post=Post::find(1);//找尋posts資料表id=1的貼文
+//    dd($post);
+
+    $posts=Post::where('id','<',10)->orderBy('id','DESC')->get();//查詢符合條件的貼文，排序後，取出
+    dd($posts);
 });
 Route::get('posts', [PostsController::class, 'index'])->name('posts.index');
 Route::get('post', [PostsController::class, 'show'])->name('posts.show');
