@@ -47,9 +47,10 @@ Route::get('/', function () {
 //    $post->content='saved content';
 //    $post->save();
 
-    $post=Post::find(1);//使用 delete方法
-    $post->delete();
+//    $post=Post::find(1);//使用 delete方法
+//    $post->delete();
 
+    Post::destroy(2);//使用destroy方法
 });
 Route::get('posts', [PostsController::class, 'index'])->name('posts.index');
 Route::get('post', [PostsController::class, 'show'])->name('posts.show');
