@@ -16,10 +16,15 @@ use App\Models\Post;
 
 Route::get('/', function () {
     //return view('welcome');
-    $post=new Post();//先產生Post的物件$post，$post代表posts資料表的一篇貼文
-    $post->title='test title';//指定貼文的title
-    $post->content='text content';//指定貼文的content
-    $post->save();
+
+//    $post=new Post();//先產生Post的物件$post，$post代表posts資料表的一篇貼文
+//    $post->title='test title';//指定貼文的title
+//    $post->content='text content';//指定貼文的content
+//    $post->save();
+    Post::create([
+       'title'=>'test title2',
+        'content'=>'test content2'
+    ]);
 });
 Route::get('posts', [PostsController::class, 'index'])->name('posts.index');
 Route::get('post', [PostsController::class, 'show'])->name('posts.show');
