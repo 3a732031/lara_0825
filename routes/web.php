@@ -50,7 +50,9 @@ Route::get('/', function () {
 //    $post=Post::find(1);//使用 delete方法
 //    $post->delete();
 
-    Post::destroy(2);//使用destroy方法
+//    Post::destroy(2);//使用destroy方法
+
+    Post::destroy(3, 5, 7);//刪除多筆資料
 });
 Route::get('posts', [PostsController::class, 'index'])->name('posts.index');
 Route::get('post', [PostsController::class, 'show'])->name('posts.show');
