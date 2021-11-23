@@ -61,9 +61,13 @@ Route::get('/', function () {
 //    $featuredPosts=Post::where('is_feature',1)->get();
 //    dd($featuredPosts);
 
-    //Model查詢回傳單一筆貼文
-    $fourthPost=Post::find(4);
-    dd($fourthPost);
+//    //Model查詢回傳單一筆貼文
+//    $fourthPost=Post::find(4);
+//    dd($fourthPost);
+
+    //Model查詢最後一筆貼文
+    $lastPost=Post::orderBy('id','DESC')->first();
+    dd($lastPost);
 });
 Route::get('posts', [PostsController::class, 'index'])->name('posts.index');
 Route::get('post', [PostsController::class, 'show'])->name('posts.show');
