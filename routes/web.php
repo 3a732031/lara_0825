@@ -58,8 +58,12 @@ Route::get('/', function () {
 //    $allPosts=Post::all();
 //    dd($allPosts);
 
-    $featuredPosts=Post::where('is_feature',1)->get();
-    dd($featuredPosts);
+//    $featuredPosts=Post::where('is_feature',1)->get();
+//    dd($featuredPosts);
+
+    //Model查詢回傳單一筆貼文
+    $fourthPost=Post::find(4);
+    dd($fourthPost);
 });
 Route::get('posts', [PostsController::class, 'index'])->name('posts.index');
 Route::get('post', [PostsController::class, 'show'])->name('posts.show');
