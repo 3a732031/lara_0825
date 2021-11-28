@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
 use App\Models\Post;
+use App\Models\Comment;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,9 +66,15 @@ Route::get('/', function () {
 //    $fourthPost=Post::find(4);
 //    dd($fourthPost);
 
-    //Model查詢最後一筆貼文
-    $lastPost=Post::orderBy('id','DESC')->first();
-    dd($lastPost);
+//    //Model查詢最後一筆貼文
+//    $lastPost=Post::orderBy('id','DESC')->first();
+//    dd($lastPost);
+
+    //建立Post與Comment的關係(1:n) 透過關聯將資料印出來
+    $post=Post::find(1);
+    foreach ($post->comments as $comment){
+        echo $comment->content.'<br>';
+    }
 });
 Route::get('posts', [PostsController::class, 'index'])->name('posts.index');
 Route::get('post', [PostsController::class, 'show'])->name('posts.show');
