@@ -71,10 +71,18 @@ Route::get('/', function () {
 //    dd($lastPost);
 
     //建立Post與Comment的關係(1:n) 透過關聯將資料印出來
-    $post=Post::find(1);
-    foreach ($post->comments as $comment){
-        echo $comment->content.'<br>';
-    }
+//    $post=Post::find(1);
+//    foreach ($post->comments as $comment){
+//        echo $comment->content.'<br>';
+//    }
+
+    //透過post()關係，擷取posts資料(補充)
+    $comment=Comment::find(1);
+    echo $comment->content.'<br>';
+    $post=$comment->post;
+    echo $post->id.'<br>';
+    echo $post->title.'<br>';
+    echo $post->content.'<br>';
 });
 Route::get('posts', [PostsController::class, 'index'])->name('posts.index');
 Route::get('post', [PostsController::class, 'show'])->name('posts.show');
